@@ -5,12 +5,14 @@ git clone https://github.com/leocodeio/common-njs.git
 cd common-njs
 pnpm install
 # install dependencies
-pnpm add @nestjs/config @leocodeio-njs/njs-config helmet express-basic-auth joi class-validator class-transformer @leocodeio-njs/njs-logging @leocodeio-njs/njs-health @nestjs/typeorm typeorm husky @commitlint/cli @commitlint/config-conventional @commitlint/cz-commitlint @semantic-release/commit-analyzer @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator @semantic-release/git
+pnpm add @nestjs/config @leocodeio-njs/njs-config helmet express-basic-auth joi class-validator class-transformer @leocodeio-njs/njs-logging @leocodeio-njs/njs-health @nestjs/typeorm typeorm husky @commitlint/cli @commitlint/config-conventional @commitlint/cz-commitlint @semantic-release/commit-analyzer @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator @semantic-release/git husky semantic-release
 ```
 
 ## things to add
 
 - add configservice to app module
+
+app.module.ts
 
 ```typescript
 import { Module } from '@nestjs/common';
@@ -78,5 +80,34 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 })
 export class AppModule {}
 ```
+main.ts
 
+```typescript
+import { NestFactory } from '@nestjs/core';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { AppModule } from './app.module';
+import { BootstrapConfig } from '@leocodeio-njs/njs-config';
 
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  const configService = app.get(ConfigService);
+  const bootstrapConfig = new BootstrapConfig();
+
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+
+  app.enableVersioning({
+    type: VersioningType.URI,
+    defaultVersion: configService.get('API_VERSION'),
+    prefix: 'v',
+  });
+
+  bootstrapConfig.setupHelmet(app);
+  // bootstrapConfig.setupCors(app);
+  bootstrapConfig.setupSwagger(app);
+
+  console.log('application running on port', configService.get('PORT'));
+  await app.listen(configService.get('PORT') as number);
+}
+bootstrap();
+```
