@@ -5,4 +5,4 @@
 export EDITOR="cat"
 
 # Validate commit message AFTER Commitizen finishes
-pnpm commitlint --edit "$1"
+pnpm exec commitlint --edit "$1"
