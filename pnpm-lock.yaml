@@ -32,12 +32,24 @@ importers:
       '@nestjs/typeorm':
         specifier: ^11.0.0
         version: 11.0.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(reflect-metadata@0.2.2)(rxjs@7.8.2)(typeorm@0.3.23(pg@8.15.6)(reflect-metadata@0.2.2)(ts-node@10.9.2(@swc/core@1.11.24)(@types/node@22.15.17)(typescript@5.8.3)))
+      '@semantic-release/changelog':
+        specifier: ^6.0.3
+        version: 6.0.3(semantic-release@24.2.3(typescript@5.8.3))
+      '@semantic-release/git':
+        specifier: ^10.0.1
+        version: 10.0.1(semantic-release@24.2.3(typescript@5.8.3))
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
       class-validator:
         specifier: ^0.14.2
         version: 0.14.2
+      commitizen:
+        specifier: ^4.3.1
+        version: 4.3.1(@types/node@22.15.17)(typescript@5.8.3)
+      commitlint:
+        specifier: ^19.8.0
+        version: 19.8.1(@types/node@22.15.17)(typescript@5.8.3)
       express-basic-auth:
         specifier: ^1.2.1
         version: 1.2.1
@@ -57,6 +69,15 @@ importers:
         specifier: ^0.3.23
         version: 0.3.23(pg@8.15.6)(reflect-metadata@0.2.2)(ts-node@10.9.2(@swc/core@1.11.24)(@types/node@22.15.17)(typescript@5.8.3))
     devDependencies:
+      '@commitlint/cli':
+        specifier: ^19.8.0
+        version: 19.8.1(@types/node@22.15.17)(typescript@5.8.3)
+      '@commitlint/config-conventional':
+        specifier: ^19.8.0
+        version: 19.8.1
+      '@commitlint/cz-commitlint':
+        specifier: ^19.8.0
+        version: 19.8.1(@types/node@22.15.17)(commitizen@4.3.1(@types/node@22.15.17)(typescript@5.8.3))(inquirer@8.2.5)(typescript@5.8.3)
       '@eslint/eslintrc':
         specifier: ^3.2.0
         version: 3.3.1
@@ -72,6 +93,18 @@ importers:
       '@nestjs/testing':
         specifier: ^11.0.1
         version: 11.1.0(@nestjs/common@11.1.0(class-transformer@0.5.1)(class-validator@0.14.2)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.0)(@nestjs/platform-express@11.1.0)
+      '@semantic-release/commit-analyzer':
+        specifier: ^13.0.1
+        version: 13.0.1(semantic-release@24.2.3(typescript@5.8.3))
+      '@semantic-release/github':
+        specifier: ^11.0.2
+        version: 11.0.2(semantic-release@24.2.3(typescript@5.8.3))
+      '@semantic-release/npm':
+        specifier: ^12.0.1
+        version: 12.0.1(semantic-release@24.2.3(typescript@5.8.3))
+      '@semantic-release/release-notes-generator':
+        specifier: ^14.0.3
+        version: 14.0.3(semantic-release@24.2.3(typescript@5.8.3))
       '@swc/cli':
         specifier: ^0.6.0
         version: 0.6.0(@swc/core@1.11.24)(chokidar@4.0.3)
@@ -344,9 +377,20 @@ packages:
     engines: {node: '>=v18'}
     hasBin: true
 
+  '@commitlint/config-conventional@19.8.1':
+    resolution: {integrity: sha512-/AZHJL6F6B/G959CsMAzrPKKZjeEiAVifRyEwXxcT6qtqbPwGw+iQxmNS+Bu+i09OCtdNRW6pNpBvgPrtMr9EQ==}
+    engines: {node: '>=v18'}
+
   '@commitlint/config-validator@19.8.1':
     resolution: {integrity: sha512-0jvJ4u+eqGPBIzzSdqKNX1rvdbSU1lPNYlfQQRIFnBgLy26BtC0cFnr7c/AyuzExMxWsMOte6MkTi9I3SQ3iGQ==}
     engines: {node: '>=v18'}
+
+  '@commitlint/cz-commitlint@19.8.1':
+    resolution: {integrity: sha512-GndsziRLYQbmDSukwgQSp8G/cTlhJNn2U8nKZaNG9NiBxv17uMTI69u7c9RJTcAQCjVNOWWB4+CT/aPFxcbzSQ==}
+    engines: {node: '>=v18'}
+    peerDependencies:
+      commitizen: ^4.0.3
+      inquirer: ^9.0.0
 
   '@commitlint/ensure@19.8.1':
     resolution: {integrity: sha512-mXDnlJdvDzSObafjYrOSvZBwkD01cqB4gbnnFuVyNpGUM5ijwU/r/6uqUmBXAAOKRfyEjpkGVZxaDsCVnHAgyw==}
@@ -2320,6 +2364,10 @@ packages:
   conventional-changelog-angular@8.0.0:
     resolution: {integrity: sha512-CLf+zr6St0wIxos4bmaKHRXWAcsCXrJU6F4VdNDrGRK3B8LDLKoX3zuMV5GhtbGkVR/LohZ6MT6im43vZLSjmA==}
     engines: {node: '>=18'}
+
+  conventional-changelog-conventionalcommits@7.0.2:
+    resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
+    engines: {node: '>=16'}
 
   conventional-changelog-writer@8.0.1:
     resolution: {integrity: sha512-hlqcy3xHred2gyYg/zXSMXraY2mjAYYo0msUCpK+BGyaVJMFCKWVXPIHiaacGO2GGp13kvHWXFhYmxT4QQqW3Q==}
@@ -5615,10 +5663,29 @@ snapshots:
       - '@types/node'
       - typescript
 
+  '@commitlint/config-conventional@19.8.1':
+    dependencies:
+      '@commitlint/types': 19.8.1
+      conventional-changelog-conventionalcommits: 7.0.2
+
   '@commitlint/config-validator@19.8.1':
     dependencies:
       '@commitlint/types': 19.8.1
       ajv: 8.17.1
+
+  '@commitlint/cz-commitlint@19.8.1(@types/node@22.15.17)(commitizen@4.3.1(@types/node@22.15.17)(typescript@5.8.3))(inquirer@8.2.5)(typescript@5.8.3)':
+    dependencies:
+      '@commitlint/ensure': 19.8.1
+      '@commitlint/load': 19.8.1(@types/node@22.15.17)(typescript@5.8.3)
+      '@commitlint/types': 19.8.1
+      chalk: 5.4.1
+      commitizen: 4.3.1(@types/node@22.15.17)(typescript@5.8.3)
+      inquirer: 8.2.5
+      lodash.isplainobject: 4.0.6
+      word-wrap: 1.2.5
+    transitivePeerDependencies:
+      - '@types/node'
+      - typescript
 
   '@commitlint/ensure@19.8.1':
     dependencies:
@@ -7837,6 +7904,10 @@ snapshots:
       compare-func: 2.0.0
 
   conventional-changelog-angular@8.0.0:
+    dependencies:
+      compare-func: 2.0.0
+
+  conventional-changelog-conventionalcommits@7.0.2:
     dependencies:
       compare-func: 2.0.0
 
