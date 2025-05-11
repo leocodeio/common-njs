@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/leocodeio/common-njs/compare/v1.0.0...v1.0.1) (2025-05-11)
+
+
+### Performance Improvements
+
+* **readme updte:** readme updte ([5ceaa7c](https://github.com/leocodeio/common-njs/commit/5ceaa7cc4c84dd93a7f8c9264e57c5cd80126393))
+
 # 1.0.0 (2025-05-11)
 
 
