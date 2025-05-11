@@ -5,7 +5,7 @@ git clone https://github.com/leocodeio/common-njs.git
 cd common-njs
 pnpm install
 # install dependencies
-pnpm add @nestjs/config @leocodeio-njs/njs-config helmet express-basic-auth joi class-validator class-transformer @leocodeio-njs/njs-logging @leocodeio-njs/njs-health @nestjs/typeorm typeorm
+pnpm add @nestjs/config @leocodeio-njs/njs-config helmet express-basic-auth joi class-validator class-transformer @leocodeio-njs/njs-logging @leocodeio-njs/njs-health @nestjs/typeorm typeorm husky @commitlint/cli @commitlint/config-conventional @commitlint/cz-commitlint @semantic-release/commit-analyzer @semantic-release/github @semantic-release/npm @semantic-release/release-notes-generator @semantic-release/git
 ```
 
 ## things to add
